@@ -15,8 +15,9 @@ namespace TextEncryption
   {
     private Nullable <char> CaesarKey = null;
     private string VigenereKey = null;
-    const string CaesarKeyText = "Key (single character a-z)";
-    const string VigenereKeyText = "Key (string, characters a-z only)";
+    private const string CaesarKeyText = "Key (single character a-z)";
+    private const string VigenereKeyText = "Key (string, characters a-z only)";
+    private const string InvalidKeyMessage = "Invalid Key";
 
 
     public Form1 ()
@@ -67,25 +68,44 @@ namespace TextEncryption
     }
 
 
-    private void textboxKey_TextChanged (object sender, EventArgs e)
+    // Check if the key is valid for the selected scheme, save it to variable.
+    private void ValidateKey ()
     {
       switch (selectEncryptionScheme.SelectedIndex)
       {
       case Encryption.Caesar: // update the Caesar cipher key
         if (Encryption.ValidateKey (textboxKey.Text, Encryption.Caesar))
+        {
           CaesarKey = textboxKey.Text [0];
+          labelInvalidKey.Text = "";
+        }
         else
+        {
           CaesarKey = null;
+          labelInvalidKey.Text = InvalidKeyMessage;
+        }
         break;
       case Encryption.Vigenere: // update the Vigenere cipher key
         if (Encryption.ValidateKey (textboxKey.Text, Encryption.Vigenere))
+        {
           VigenereKey = textboxKey.Text;
+          labelInvalidKey.Text = "";
+        }
         else
+        {
           VigenereKey = null;
+          labelInvalidKey.Text = InvalidKeyMessage;
+        }
         break;
       default:
         break;
       }
+    }
+
+
+    private void textboxKey_TextChanged (object sender, EventArgs e)
+    {
+      ValidateKey ();
     }
 
 
@@ -191,6 +211,7 @@ namespace TextEncryption
       default:
         break;
       }
+      ValidateKey ();
     }
   }
 }

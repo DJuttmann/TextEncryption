@@ -44,6 +44,7 @@
       this.buttonSaveCiphertext = new System.Windows.Forms.Button();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+      this.labelInvalidKey = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
       // textboxPlaintext
@@ -101,7 +102,7 @@
       // 
       // textboxKey
       // 
-      this.textboxKey.Location = new System.Drawing.Point(389, 86);
+      this.textboxKey.Location = new System.Drawing.Point(389, 92);
       this.textboxKey.Name = "textboxKey";
       this.textboxKey.Size = new System.Drawing.Size(212, 22);
       this.textboxKey.TabIndex = 6;
@@ -110,7 +111,7 @@
       // labelKey
       // 
       this.labelKey.AutoSize = true;
-      this.labelKey.Location = new System.Drawing.Point(392, 64);
+      this.labelKey.Location = new System.Drawing.Point(392, 70);
       this.labelKey.Name = "labelKey";
       this.labelKey.Size = new System.Drawing.Size(32, 17);
       this.labelKey.TabIndex = 7;
@@ -180,11 +181,22 @@
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
       // 
+      // labelInvalidKey
+      // 
+      this.labelInvalidKey.AutoSize = true;
+      this.labelInvalidKey.ForeColor = System.Drawing.Color.Red;
+      this.labelInvalidKey.Location = new System.Drawing.Point(392, 120);
+      this.labelInvalidKey.Name = "labelInvalidKey";
+      this.labelInvalidKey.Size = new System.Drawing.Size(74, 17);
+      this.labelInvalidKey.TabIndex = 14;
+      this.labelInvalidKey.Text = "Invalid key";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(623, 452);
+      this.Controls.Add(this.labelInvalidKey);
       this.Controls.Add(this.buttonSaveCiphertext);
       this.Controls.Add(this.buttonLoadCiphertext);
       this.Controls.Add(this.buttonSavePlaintext);
@@ -224,6 +236,7 @@
     private System.Windows.Forms.Button buttonSaveCiphertext;
     private System.Windows.Forms.OpenFileDialog openFileDialog1;
     private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+    private System.Windows.Forms.Label labelInvalidKey;
   }
 }
 
