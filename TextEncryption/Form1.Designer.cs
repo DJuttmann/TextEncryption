@@ -211,6 +211,7 @@
       this.Controls.Add(this.labelPlaintext);
       this.Controls.Add(this.textboxCipherText);
       this.Controls.Add(this.textboxPlaintext);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.Name = "Form1";
       this.Text = "Form1";
       this.ResumeLayout(false);
